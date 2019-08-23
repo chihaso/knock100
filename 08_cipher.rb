@@ -1,4 +1,5 @@
 class Cryptgraphy
+  SECRET_NUM = 219
   def initialize(string)
     @string =string
   end
@@ -7,7 +8,7 @@ class Cryptgraphy
     encoded_str = []
     @string.each { |c|
       if c.match?(/[a-z]/)
-        encoded_str << 219 - c.ord
+        encoded_str << SECRET_NUM - c.ord
       else
         encoded_str << c
       end
@@ -18,9 +19,12 @@ class Cryptgraphy
   def decode
     decoded_str = []
     @string.each { |c|
-      if c.class == "integer" & (/[0-9]/)
-        if c > 96 & c
-        decoded_str << (c + 219).chr
+      if c.class == Integer
+        if c > (SECRET_NUM - 123) && c < (SECRET_NUM - 96)
+          decoded_str << (SECRET_NUM - c).chr
+        else
+          decoded_str << c
+        end
       else
         decoded_str << c
       end
