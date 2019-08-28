@@ -1,10 +1,12 @@
 sentence = File.open(ARGV[0]).read
 puts "Original:\n"
 p sentence
-sentence.split("").map! { |c|
+modified_sentence = sentence.split("").map { |c|
   if c == "\t" then
-    c = " "
+    " "
+  else
+    c
   end
-}
+}.join
 puts "Modified:\n"
-p sentence
+p modified_sentence
