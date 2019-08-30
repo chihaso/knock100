@@ -1,6 +1,5 @@
 sentence = File.open(ARGV[0]).read
 lines = sentence.split("\n")
-p lines
 col1 = []
 col2 = []
 lines.each { |line|
